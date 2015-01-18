@@ -6,7 +6,7 @@
 /*   By: nbelloun <nbelloun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/05 14:08:54 by nbelloun          #+#    #+#             */
-/*   Updated: 2014/11/28 14:02:39 by nbelloun         ###   ########.fr       */
+/*   Updated: 2015/01/11 11:51:55 by nbelloun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strchr(const char *src, int c)
 		return (NULL);
 	while ((*((char *)src) != '\0') && (*((char *)src) != (char)c))
 		(char *)src++;
-	if (*((char *)src) == (char)c)
+	if (*(char *)src == (char)c)
 		return ((char *)src);
 	return (NULL);
 }

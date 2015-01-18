@@ -6,56 +6,71 @@
 /*   By: nbelloun <nbelloun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/08 16:40:52 by nbelloun          #+#    #+#             */
-/*   Updated: 2014/11/28 17:59:46 by nbelloun         ###   ########.fr       */
+/*   Updated: 2015/01/18 13:55:22 by nbelloun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_getword(char const *s, char c, size_t *start, size_t len)
+static size_t		ft_count_words(char *s, char c)
 {
-	size_t			i;
-
-	i = *start + len;
-	while (*(s + i) == c)
-		i++;
-	*start = i;
-	while (*(s + i) != c && *(s + i) != '\0')
-		i++;
-	return (i - *start);
-}
-
-static void		ft_initialize(size_t *count, size_t *start, size_t *len)
-{
-	*count = 0;
-	*start = 0;
-	*len = 0;
-}
-
-char			**ft_strsplit(char const *s, char c)
-{
-	char			**w;
+	size_t			counter;
 	size_t			count;
-	size_t			start;
+
+	counter = 0;
+	count = 0;
+	if (!s || !c)
+		return (0);
+	if (*s != c && *s != '\0')
+		count++;
+	while (s[counter] != '\0')
+	{
+		if (s[counter] == c && s[counter + 1] != c && s[counter + 1] != '\0')
+			count++;
+		counter++;
+	}
+	return (count);
+}
+
+static size_t		ft_word_len(char *s, char c)
+{
 	size_t			len;
+
+	if (!s)
+		return (0);
+	len = 0;
+	while (*s && *s != c && *s != '\0')
+	{
+		len++;
+		s++;
+	}
+	return (len);
+}
+
+char				**ft_strsplit(char const *s, char c)
+{
+	size_t			nb_words;
+	size_t			word_len;
+	char			**array;
+	size_t			j;
 	size_t			i;
 
-	ft_initialize(&count, &start, &len);
-	if (!s || !c)
+	nb_words = ft_count_words((char *)s, c);
+	if (!s || !c || !(array = (char **)malloc(sizeof(char *) * (nb_words + 1))))
 		return (NULL);
-	while ((len = ft_getword(s, c, &start, len)) != 0)
-		count++;
-	if ((w = (char **)malloc(sizeof(*w) * (count + 1))) == NULL)
-		return (NULL);
-	start = 0;
+	j = 0;
 	i = 0;
-	while (i < count)
+	while (j < nb_words)
 	{
-		len = ft_getword(s, c, &start, len);
-		if ((*(w + i) = ft_strsub(s, start, len)) == NULL)
-			return (NULL);
+		if (s[i] != c)
+		{
+			word_len = ft_word_len((char *)(s + i), c);
+			array[j] = ft_strsub(s + i, 0, word_len);
+			j++;
+			i += word_len;
+		}
 		i++;
 	}
-	*(w + i) = NULL;
-	return (w);
+	array[nb_words] = NULL;
+	return (array);
 }

@@ -6,7 +6,7 @@
 /*   By: nbelloun <nbelloun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/08 16:40:52 by nbelloun          #+#    #+#             */
-/*   Updated: 2014/11/19 18:15:03 by nbelloun         ###   ########.fr       */
+/*   Updated: 2015/01/17 18:43:25 by nbelloun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,5 @@ void	ft_strclr(char *s)
 {
 	if (!s)
 		return ;
-	ft_bzero((void *)s, ft_strlen((const char *)s));
+	ft_bzero((void *)s, ft_strlen(s));
 }

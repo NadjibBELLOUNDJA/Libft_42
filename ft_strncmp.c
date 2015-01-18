@@ -6,7 +6,7 @@
 /*   By: nbelloun <nbelloun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/06 14:05:33 by nbelloun          #+#    #+#             */
-/*   Updated: 2014/11/16 20:13:50 by nbelloun         ###   ########.fr       */
+/*   Updated: 2015/01/11 14:29:08 by nbelloun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,19 @@
 
 int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t	i;
-
-	if (!s1 || !s2)
+	if (!s1 && !s2)
 		return (0);
-	if (n == 0)
-		return (0);
-	i = 0;
-	n--;
-	while ((*s1 == *s2++) && (i < n))
+	if (!s1)
+		return (-*(unsigned char *)s2);
+	if (!s2)
+		return (*(unsigned char *)s1);
+	while ((*s1 || *s2) && n)
 	{
-		if (*s1 == 0)
-			return (0);
+		if (*s1 != *s2)
+			return (*(unsigned char *)s1 - *(unsigned char *)s2);
 		s1++;
-		i++;
+		s2++;
+		n--;
 	}
-	return (*(unsigned char *)s1 - *(unsigned char *)--s2);
+	return (0);
 }

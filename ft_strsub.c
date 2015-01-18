@@ -6,7 +6,7 @@
 /*   By: nbelloun <nbelloun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/08 16:40:52 by nbelloun          #+#    #+#             */
-/*   Updated: 2014/11/14 20:24:46 by nbelloun         ###   ########.fr       */
+/*   Updated: 2015/01/18 13:49:37 by nbelloun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 
 	if ((int)len < 0 || !s)
 		return (NULL);
-	s_new = ft_strnew(len);
-	if (!s_new)
+	if (!(s_new = ft_strnew(len)))
 		return (NULL);
 	ft_strncpy(s_new, s + start, len);
 	return (s_new);

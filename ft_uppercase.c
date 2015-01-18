@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_uppercase.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbelloun <nbelloun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/06 14:17:58 by nbelloun          #+#    #+#             */
-/*   Updated: 2015/01/18 13:28:21 by nbelloun         ###   ########.fr       */
+/*   Created: 2014/12/19 11:04:02 by nbelloun          #+#    #+#             */
+/*   Updated: 2015/01/11 14:32:13 by nbelloun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(char const *str)
+int	ft_uppercase(char *src)
 {
-	int	i;
-
-	if (!str)
-		return ;
-	i = 0;
-	while (str[i] != '\0')
+	while (*src)
 	{
-		ft_putchar(str[i]);
-		i++;
+		*src = ft_toupper(*src);
+		src = src + 1;
 	}
+	return (1);
 }

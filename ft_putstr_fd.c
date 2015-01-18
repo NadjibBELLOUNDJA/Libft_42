@@ -6,7 +6,7 @@
 /*   By: nbelloun <nbelloun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/08 16:40:52 by nbelloun          #+#    #+#             */
-/*   Updated: 2014/11/14 20:55:27 by nbelloun         ###   ########.fr       */
+/*   Updated: 2015/01/11 14:31:55 by nbelloun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 void	ft_putstr_fd(char const *str, int fd)
 {
-	int i;
+	int	i;
 
+	if (!str)
+		return ;
 	i = 0;
 	while (str[i] != '\0')
 	{

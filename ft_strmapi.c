@@ -6,7 +6,7 @@
 /*   By: nbelloun <nbelloun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/08 16:40:52 by nbelloun          #+#    #+#             */
-/*   Updated: 2014/11/14 20:49:49 by nbelloun         ###   ########.fr       */
+/*   Updated: 2015/01/18 13:52:05 by nbelloun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	if (s != NULL && f != NULL)
 	{
 		len = ft_strlen(s);
-		s_new = ft_strnew(len);
+		if (!(s_new = ft_strnew(len)))
+			return (NULL);
 		i = 0;
 		while (i < len)
 		{

@@ -6,7 +6,7 @@
 /*   By: nbelloun <nbelloun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 19:47:15 by nbelloun          #+#    #+#             */
-/*   Updated: 2014/11/14 20:33:35 by nbelloun         ###   ########.fr       */
+/*   Updated: 2015/01/15 22:48:50 by nbelloun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strcat(char *s1, const char *s2)
 	int	j;
 
 	i = 0;
+	if (!s1 || !s2)
+		return (NULL);
 	while (s1[i] != '\0')
 		i++;
 	j = 0;

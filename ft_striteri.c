@@ -6,7 +6,7 @@
 /*   By: nbelloun <nbelloun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/08 16:40:52 by nbelloun          #+#    #+#             */
-/*   Updated: 2014/11/14 20:52:16 by nbelloun         ###   ########.fr       */
+/*   Updated: 2015/01/17 18:45:49 by nbelloun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	int	len;
-	int	i;
+	size_t	len;
+	size_t	i;
 
 	if (s != NULL && f != NULL)
 	{
-		len = ft_strlen((const char *)s);
+		len = ft_strlen(s);
 		i = 0;
 		while (i < len)
 		{

@@ -6,7 +6,7 @@
 /*   By: nbelloun <nbelloun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 19:55:40 by nbelloun          #+#    #+#             */
-/*   Updated: 2014/11/14 22:38:29 by nbelloun         ###   ########.fr       */
+/*   Updated: 2015/01/15 22:51:52 by nbelloun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strncat(char *dest, const char *src, size_t n)
 	int				i;
 	unsigned int	j;
 
+	if (!dest || !src)
+		return (NULL);
 	i = 0;
 	while (dest[i] != '\0')
 		i++;

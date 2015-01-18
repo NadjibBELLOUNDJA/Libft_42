@@ -6,7 +6,7 @@
 /*   By: nbelloun <nbelloun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/08 16:40:52 by nbelloun          #+#    #+#             */
-/*   Updated: 2014/11/14 20:37:10 by nbelloun         ###   ########.fr       */
+/*   Updated: 2015/01/18 13:50:27 by nbelloun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,14 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	len;
 	size_t	i;
 
-	if (s1 == NULL || s2 == NULL)
-		return ((char *)NULL);
-	if (s1 == NULL && s2)
+	if (!s1 && !s2)
+		return (NULL);
+	if (!s1 && s2)
 		return (ft_strdup(s2));
-	if (s2 == NULL && s1)
+	if (!s2 && s1)
 		return (ft_strdup(s1));
 	len = ft_strlen(s1) + ft_strlen(s2) + 1;
-	s_new = ft_strnew(len);
-	if (!s_new)
+	if (!(s_new = ft_strnew(len)))
 		return (NULL);
 	i = 0;
 	while (i < len)
